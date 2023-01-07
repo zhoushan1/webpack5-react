@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable import/extensions */
 const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const { merge } = require('webpack-merge')

@@ -15,11 +15,9 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
-    "jsx": "react", // react18这里也可以改成react-jsx
+    "jsx": "react" // react18这里也可以改成react-jsx
   },
   "include": ["./src"]
 }

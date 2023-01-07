@@ -1,10 +1,9 @@
-import React from "react"
+import React from 'react'
 import request from './utils/request'
 
 function fetchData() {
-  return request.get('/api/test');
+  return request.get('/api/test')
 }
-
 
 function App() {
   const handleClick = async () => {
@@ -19,10 +18,14 @@ function App() {
     // })
   }
 
-  return <div>
-    <h1>hello</h1>
-    <div><button onClick={handleClick}>测试接口</button></div>
-  </div>
+  return (
+    <div>
+      <h1>hello</h1>
+      <div>
+        <button onClick={handleClick}>测试接口</button>
+      </div>
+    </div>
+  )
 }
 
 export default App
