@@ -1,9 +1,10 @@
 import React from 'react'
 import request from './utils/request'
+import './app.less'
 
-function fetchData() {
-  return request.get('/api/test')
-}
+// function fetchData() {
+//   return request.get('/api/test')
+// }
 
 function App() {
   const handleClick = async () => {
@@ -21,7 +22,8 @@ function App() {
   return (
     <div>
       <h1>hello</h1>
-      <div>
+      <div className="button-wrap">
+        <div>啦啦啦1</div>
         <button onClick={handleClick}>测试接口</button>
       </div>
     </div>

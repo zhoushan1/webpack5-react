@@ -3,10 +3,10 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: path.join(__dirname, '../src/index.tsx'), // 入口文件
+  entry: path.join(__dirname, '../src/index.tsx'),
   output: {
-    filename: 'static/js/[name].js', // 每个输出js的名称
-    path: path.join(__dirname, '../dist'), // 打包结果输出路径
+    filename: 'static/js/[name].[chunkhash:8].js', // 每个输出js的名称
+    path: path.join(__dirname, '../dist'),
     clean: true, // webpack4需要配置clean-webpack-plugin来删除dist文件,webpack5内置了
     publicPath: '/' // 打包后文件的公共前缀路径
   },
@@ -17,16 +17,17 @@ module.exports = {
     alias: {
       '@': path.join(__dirname, '../src')
     },
-    extensions: ['.js', '.tsx', '.ts']
+    extensions: ['.js', '.tsx', '.ts', '.jsx']
   },
   module: {
     rules: [
       {
         test: /.(ts|tsx)$/,
-        use: 'babel-loader'
+        use: 'babel-loader',
+        include: [path.resolve(__dirname, '../src')]
       },
       {
-        test: /.(css|less)$/, // 匹配 css和less 文件
+        test: /.(css|less)$/,
         use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
       },
       {
@@ -42,7 +43,7 @@ module.exports = {
         }
       },
       {
-        test: /.(woff2?|eot|ttf|otf)$/, // 匹配字体图标文件
+        test: /.(woff2?|eot|ttf|otf)$/,
         type: 'asset', // type选择asset
         parser: {
           dataUrlCondition: {
@@ -54,7 +55,7 @@ module.exports = {
         }
       },
       {
-        test: /.(mp4|webm|ogg|mp3|wav|flac|aac)$/, // 匹配媒体文件
+        test: /.(mp4|webm|ogg|mp3|wav|flac|aac)$/,
         type: 'asset', // type选择asset
         parser: {
           dataUrlCondition: {
