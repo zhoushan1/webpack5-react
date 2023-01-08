@@ -1,3 +1,4 @@
 # webpack5-react
 
-webpack5+react18+ts+eslint
+react 全家桶配置
+webpack5+react18+router+ts+eslint
